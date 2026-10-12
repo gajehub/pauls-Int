@@ -3,218 +3,449 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Pauls International">
-    <meta name="keyword" content="Pauls International, 폴스무역, paulsint" />
-    <link rel="stylesheet" href="dist/css/reset.css" />
-    <link rel="stylesheet" href="dist/css/styles.css" />
-    <title>Pauls International</title>
+
+    <title>Pauls International | Textile Fabric Exporter in Seoul, Korea</title>
+    <meta
+      name="description"
+      content="Pauls International is a Seoul-based textile trading company exporting polyester woven, blended, recycled and knit fabrics worldwide since 2010. OEKO-TEX and GRS certified supply."
+    />
+    <link rel="canonical" href="https://paulsint.com/" />
+
+    <!-- Open Graph / 링크 공유용 (카카오톡, 링크드인, 메일 미리보기) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Pauls International" />
+    <meta
+      property="og:title"
+      content="Pauls International | Textile Fabric Exporter in Seoul, Korea"
+    />
+    <meta
+      property="og:description"
+      content="Exporting polyester woven, blended, recycled and knit fabrics worldwide since 2010."
+    />
+    <meta property="og:url" content="https://paulsint.com/" />
+    <meta property="og:image" content="https://paulsint.com/img/hero.webp" />
+    <meta property="og:image:width" content="1920" />
+    <meta property="og:image:height" content="1077" />
+    <meta property="og:image:alt" content="Textile fabrics handled by Pauls International" />
+    <meta name="twitter:card" content="summary_large_image" />
+
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
     <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+
+    <!-- 폰트를 CSS @import 대신 여기서 직접 로드 (렌더링 차단 감소) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Rokkitt:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="dist/css/reset.css" />
+    <link rel="stylesheet" href="dist/css/styles.css" />
+
+    <!-- 대문 사진을 먼저 받기 시작하도록 (첫 화면 체감 속도) -->
+    <link rel="preload" as="image" href="img/hero.webp" fetchpriority="high" />
+
+    <!-- 구조화 데이터: 구글이 회사 정보를 정확히 인식하도록 -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Pauls International",
+        "alternateName": ["폴스무역(주)", "폴스무역", "Pauls Int'l"],
+        "url": "https://paulsint.com/",
+        "logo": "https://paulsint.com/img/logo-2x.png",
+        "description": "Textile trading company exporting woven, blended, recycled and knit fabrics worldwide since 2010.",
+        "foundingDate": "2010",
+        "email": "paulsint@naver.com",
+        "telephone": "+82-2-3789-2565",
+        "faxNumber": "+82-2-3789-5161",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Room 1102-1, Saedae Bldg., 108 Toegye-ro",
+          "addressLocality": "Jung-gu",
+          "addressRegion": "Seoul",
+          "postalCode": "04631",
+          "addressCountry": "KR"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 37.560443,
+          "longitude": 126.983689
+        },
+        "areaServed": [
+          "JP", "US", "GB", "AU", "FR", "BE", "VN", "TR", "BR", "ES", "SA"
+        ]
+      }
+    </script>
   </head>
 
   <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
     <header>
-      <nav>
-        <div class="logo">
-          <img src="img/logo.png" />
-        </div>
-        <ul>
-          <li><a href="#about">About </a></li>
+      <nav aria-label="Main">
+        <a class="logo" href="#top" aria-label="Pauls International — home">
+          <img
+            src="img/logo.png"
+            srcset="img/logo.png 1x, img/logo-2x.png 2x"
+            alt="Pauls International"
+            width="204"
+            height="126"
+          />
+        </a>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="nav-menu"
+          aria-label="Open menu"
+        >
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+        </button>
+
+        <ul id="nav-menu">
+          <li><a href="#about">About</a></li>
           <li><a href="#fabrics">Fabrics</a></li>
           <li><a href="#markets">Markets</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
     </header>
-    <div class="top_button" onclick="window.scrollTo(0,0);">
-      <i class="fas fa-chevron-up"></i>
-    </div>
-    <main id="top">
-      <div class="above-hero">
-        <h1>Pauls International<br /></h1>
-        <span class="font-highlight">A company of Trust and Faith.</span>
-        <br />
-        <h1>
-          We are located in South Korea<br />and have been handling textile
-          fabrics worldwide since 2010.
-        </h1>
+
+    <button class="top_button" type="button" aria-label="Back to top" hidden>
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path
+          d="M6 15l6-6 6 6"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </button>
+
+    <main id="main">
+      <div id="top" class="above-hero">
+        <h1>Pauls International</h1>
+        <p class="font-highlight">A company of Trust and Faith.</p>
+        <p class="above-hero__lead">
+          We are located in South Korea and have been handling textile fabrics
+          worldwide since 2010.
+        </p>
       </div>
 
       <div class="hero">
         <div class="hero__img">
-          <img src="img/hero.png" />
+          <img
+            src="img/hero.webp"
+            alt="Rolls of textile fabric handled by Pauls International"
+            width="1920"
+            height="1077"
+            fetchpriority="high"
+            decoding="async"
+          />
         </div>
       </div>
 
-      <section class="history" id="about">
-        <h1>A brief history of our CEO</h1>
-        <h2>So, you can count on us.</h2>
-        <div class="dashed-line"></div>
-        <div class="wrapper__article">
-          <article class="article">
-            <div class="article__photo"></div>
-            <div class="slider">
-              <div class="dot"></div>
-            </div>
+      <section class="history" id="about" aria-labelledby="about-title">
+        <h2 id="about-title">A brief history of our CEO</h2>
+        <p class="section-sub">So, you can count on us.</p>
 
+        <ol class="wrapper__article">
+          <li class="article">
+            <div class="article__photo" data-photo="1"></div>
+            <div class="slider"><span class="dot"></span></div>
             <div class="article__data">
               <h3 class="name">1985</h3>
-              <span class="details">Graduated Yonsei University</span>
+              <p class="details">Graduated Yonsei University</p>
             </div>
-          </article>
-          <article class="article">
-            <div class="article__photo"></div>
-            <div class="slider">
-              <div class="dot"></div>
-            </div>
+          </li>
+          <li class="article">
+            <div class="article__photo" data-photo="2"></div>
+            <div class="slider"><span class="dot"></span></div>
             <div class="article__data">
-              <h3 class="name">1985-1994</h3>
-              <span class="details"
-                >Manager at<br />
-                Tongkook Corporation</span
-              >
+              <h3 class="name">1985&ndash;1994</h3>
+              <p class="details">Manager at<br />Tongkook Corporation</p>
             </div>
-          </article>
-          <article class="article">
-            <div class="article__photo"></div>
-            <div class="slider">
-              <div class="dot"></div>
-            </div>
+          </li>
+          <li class="article">
+            <div class="article__photo" data-photo="3"></div>
+            <div class="slider"><span class="dot"></span></div>
             <div class="article__data">
-              <h3 class="name">1994-2010</h3>
-              <span class="details"
-                >Executive managing director CEO at<br />
-                Seokwang Corporation</span
-              >
+              <h3 class="name">1994&ndash;2010</h3>
+              <p class="details">
+                Executive managing director CEO at<br />Seokwang Corporation
+              </p>
             </div>
-          </article>
-          <article class="article">
-            <div class="article__photo"></div>
-            <div class="slider">
-              <div class="dot"></div>
-            </div>
+          </li>
+          <li class="article">
+            <div class="article__photo" data-photo="4"></div>
+            <div class="slider"><span class="dot"></span></div>
             <div class="article__data">
-              <h3 class="name">2010-Now</h3>
-              <span class="details">CEO of Pauls International</span>
+              <h3 class="name">2010&ndash;Now</h3>
+              <p class="details">CEO of Pauls International</p>
             </div>
-          </article>
-        </div>
+          </li>
+        </ol>
       </section>
 
-      <section class="fabrics" id="fabrics">
-        <h1>
-          We are handling<br />
-          Textile Fabrics like..
-        </h1>
-        <div class="wrapper__article">
-          <article class="article">
+      <section class="fabrics" id="fabrics" aria-labelledby="fabrics-title">
+        <h2 id="fabrics-title">We are handling<br />Textile Fabrics like..</h2>
+
+        <ul class="wrapper__article">
+          <li class="article">
             <div class="article__photo">
-              <img class="fabric-photo" src="img/Blended-abrics.jpg" />
+              <img
+                src="img/Poly-woven.webp"
+                alt="Polyester woven fabric samples"
+                width="640"
+                height="360"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
             <div class="article__data">
               <h3 class="name">Polyester woven fabrics</h3>
-              <span class="details"
-                >Basic fancies<br />
+              <p class="details">
+                Basic fancies<br />
                 Novelties<br />
-                Mechanical one & two way stretch<br />
-                Spandex fabrics <br />
-                * Verified by OEKOTEX</span
-              >
+                Mechanical one &amp; two way stretch<br />
+                Spandex fabrics
+              </p>
+              <p class="badge">Verified by OEKO-TEX</p>
             </div>
-          </article>
-          <article class="article">
-            <div class="article__photo"></div>
+          </li>
+
+          <li class="article">
+            <div class="article__photo">
+              <img
+                src="img/Blended-fabrics.webp"
+                alt="Blended fabric woven from Cupra, Tencel, Modal and Linen yarns"
+                width="640"
+                height="427"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
             <div class="article__data">
-              <h3 class="name">Blended fabrics mixed with</h3>
-              <span class="details">
-                Sustainability <br />Cupra, Tencel, Modal, Linen<br />
+              <h3 class="name">Blended fabrics</h3>
+              <p class="details">
+                Cupra, Tencel, Modal, Linen<br />
                 and Viscose yarns
-              </span>
+              </p>
+              <p class="badge">Sustainability</p>
             </div>
-          </article>
-          <article class="article">
-            <div class="article__photo"></div>
+          </li>
+
+          <li class="article">
+            <div class="article__photo">
+              <img
+                src="img/Recycled-fabrics.webp"
+                alt="Fabric woven from recycled yarn"
+                width="640"
+                height="427"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
             <div class="article__data">
               <h3 class="name">Recycled yarn fabrics</h3>
-              <span class="details"
-                >Sustainability<br />
-                GRS certificate</span
-              >
+              <p class="details">Fabrics woven from recycled yarns</p>
+              <p class="badge">GRS certificate</p>
             </div>
-          </article>
-          <article class="article">
-            <div class="article__photo"></div>
+          </li>
+
+          <li class="article">
+            <div class="article__photo">
+              <img
+                src="img/Knit-fabrics.webp"
+                alt="Knit fabric samples"
+                width="640"
+                height="425"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
             <div class="article__data">
               <h3 class="name">All kinds of Knit fabrics</h3>
+              <!-- TODO: 다른 카드들처럼 설명 2~3줄을 채워주세요.
+                   (예: 취급 조직, 중량 범위, 대표 용도 — 실제 취급 품목 기준으로) -->
+              <p class="details">&nbsp;</p>
             </div>
-          </article>
-        </div>
+          </li>
+        </ul>
       </section>
 
-      <section class="worldwide" id="markets">
-        <h1>..Worldwide</h1>
+      <section class="worldwide" id="markets" aria-labelledby="markets-title">
+        <h2 id="markets-title">..Worldwide</h2>
+
         <div class="worldwide__contents">
-          <div class="worldwide__contents__img"><img src="img/map.png" /></div>
+          <div class="worldwide__contents__img">
+            <img
+              src="img/map.webp"
+              alt="World map showing the export markets of Pauls International"
+              width="1400"
+              height="773"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+
           <div class="worldwide__contents__details">
             <h3 class="name">Our markets in</h3>
-            <span class="details"
-              >Japan, USA, UK, Australia,<br />
+            <p class="details">
+              Japan, USA, UK, Australia,<br />
               France, Belgium, Vietnam,<br />
-              Turkey, Brazil, Spain, and Saudi Arabia</span
-            >
-            <label for="modal" class="button">
-              → Click to see: Certificate of<br />
+              Turkey, Brazil, Spain, and Saudi Arabia
+            </p>
+
+            <button class="button" type="button" data-open-modal>
+              &rarr; Click to see: Certificate of<br />
               product-specific approved exporter
-            </label>
-            <input type="checkbox" id="modal" class="hidden" />
-            <div class="modal_background">
-              <div class="box_modal">
-                <label for="modal" class="closer"
-                  ><i class="fas fa-times"></i
-                ></label>
-                <div class="modal_image">
-                  <img src="img/certification.png" />
-                </div>
-              </div>
-            </div>
+            </button>
           </div>
         </div>
+
+        <!-- 체크박스 해킹 대신 표준 <dialog>: ESC 닫기, 포커스 트랩, 스크린리더 인식이 기본 제공됩니다 -->
+        <dialog class="box_modal" aria-label="Certificate of product-specific approved exporter">
+          <button class="closer" type="button" data-close-modal aria-label="Close">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path
+                d="M6 6l12 12M18 6L6 18"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+              />
+            </svg>
+          </button>
+          <div class="modal_image">
+            <!-- 모달을 열 때 비로소 받아오도록 (첫 화면에서 130KB 절약) -->
+            <img
+              data-src="img/certification.webp"
+              alt="Certificate of product-specific approved exporter issued to Pauls International"
+              width="1200"
+              height="1698"
+              decoding="async"
+            />
+          </div>
+        </dialog>
       </section>
+
     </main>
 
-    <footer>
-      <div class="contacts" id="contact">
-        <p>+82 2 3789 2565<br /></p>
-        <p>paulsint@naver.com</p>
+    <footer id="contact">
+      <div class="contacts">
+        <p><a href="tel:+82237892565">+82 2 3789 2565</a></p>
+        <p><a href="mailto:paulsint@naver.com">paulsint@naver.com</a></p>
       </div>
+
       <div class="more_contacts">
         <div class="address">
           <h3>Address</h3>
-          <span class="details">
+          <address class="details">
             Room# 1102-1, Saedae Bldg.,<br />
-            108, Toegye-Ro, <br />
-            Jung-Gu, <br />
-            Seoul, Korea</span
-          >
+            108, Toegye-Ro,<br />
+            Jung-Gu,<br />
+            Seoul, Korea
+          </address>
+          <!-- 네이버가 이 사이트와 지도의 '폴스무역(주)'를 같은 회사로 인식하려면
+               한글 상호와 한글 주소가 페이지에 글자로 있어야 한다.
+               표기는 수출인증자 인증서와 동일하게 맞췄다. -->
+          <address class="details details--ko" lang="ko">
+            폴스무역(주)<br />
+            04631 서울특별시 중구 퇴계로 108<br />
+            세대빌딩 1102-1호
+          </address>
         </div>
         <div class="other">
-          <h3>Mobile & Fax</h3>
-          <span class="bold"> Mobile</span>
-          <span class="details">+82 10 3502 6151 <br /></span>
-          <span class="bold">FAX</span>
-          <span class="details"> +82 2 3789 5161</span>
+          <h3>Mobile &amp; Fax</h3>
+          <p>
+            <span class="bold">Mobile</span>
+            <a class="details" href="tel:+821035026151">+82 10 3502 6151</a>
+          </p>
+          <p>
+            <span class="bold">FAX</span>
+            <span class="details">+82 2 3789 5161</span>
+          </p>
         </div>
       </div>
     </footer>
+
     <div class="copyright">
-      <span>Copyright Pauls International 2021 |</span>
-      <span>Privacy Policy |</span>
+      <span>Copyright Pauls International <span id="year">2026</span></span>
+      <span aria-hidden="true">|</span>
+      <span>Privacy Policy</span>
+      <span aria-hidden="true">|</span>
       <span>Site by UJinny</span>
     </div>
 
-    <script
-      src="https://kit.fontawesome.com/6478f529f2.js"
-      crossorigin="anonymous"
-    ></script>
+    <script>
+      (function () {
+        // 저작권 연도 자동 갱신 — 다시는 2021에 멈추지 않도록
+        var y = document.getElementById("year");
+        if (y) y.textContent = new Date().getFullYear();
+
+        // 모바일 내비 토글
+        var toggle = document.querySelector(".nav-toggle");
+        var menu = document.getElementById("nav-menu");
+        if (toggle && menu) {
+          toggle.addEventListener("click", function () {
+            var open = toggle.getAttribute("aria-expanded") === "true";
+            toggle.setAttribute("aria-expanded", String(!open));
+            toggle.setAttribute("aria-label", open ? "Open menu" : "Close menu");
+            menu.classList.toggle("is-open", !open);
+          });
+          menu.addEventListener("click", function (e) {
+            if (e.target.tagName === "A") {
+              toggle.setAttribute("aria-expanded", "false");
+              menu.classList.remove("is-open");
+            }
+          });
+        }
+
+        // 인증서 모달 — 열 때 이미지를 받아온다
+        var dialog = document.querySelector("dialog.box_modal");
+        var openBtn = document.querySelector("[data-open-modal]");
+        var closeBtn = document.querySelector("[data-close-modal]");
+        if (dialog && openBtn) {
+          openBtn.addEventListener("click", function () {
+            var img = dialog.querySelector("img[data-src]");
+            if (img) {
+              img.src = img.getAttribute("data-src");
+              img.removeAttribute("data-src");
+            }
+            dialog.showModal();
+          });
+          if (closeBtn) {
+            closeBtn.addEventListener("click", function () {
+              dialog.close();
+            });
+          }
+          // 배경 클릭으로 닫기
+          dialog.addEventListener("click", function (e) {
+            if (e.target === dialog) dialog.close();
+          });
+        }
+
+        // Top 버튼: 일정 스크롤 이후에만 노출
+        var topBtn = document.querySelector(".top_button");
+        if (topBtn) {
+          var onScroll = function () {
+            topBtn.hidden = window.scrollY < 400;
+          };
+          onScroll();
+          window.addEventListener("scroll", onScroll, { passive: true });
+          topBtn.addEventListener("click", function () {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          });
+        }
+      })();
+    </script>
   </body>
 </html>
