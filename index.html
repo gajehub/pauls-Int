@@ -304,15 +304,53 @@
               Turkey, Brazil, Spain, and Saudi Arabia
             </p>
 
-            <button class="button" type="button" data-open-modal>
-              &rarr; Click to see: Certificate of<br />
-              product-specific approved exporter
-            </button>
+            <!-- ═══════════════════════════════════════════════════════════
+                 인증서 목록 — 인증서를 추가하거나 바꿀 때 여기만 고치면 됩니다.
+
+                 [추가하는 법]
+                 아래 <li> ... </li> 한 덩어리를 복사해 붙이고, 세 군데만 바꾸세요.
+                   1. data-cert  = img 폴더에 넣은 파일 이름
+                   2. data-label = 눈이 안 보이는 분이 듣게 되는 설명
+                   3. 버튼 안의 글자 = 화면에 보이는 이름 (<br />은 줄바꿈)
+
+                 [사진만 바꾸는 법]
+                 같은 파일 이름으로 img 폴더에 덮어쓰면 끝입니다. 여기는 안 고쳐도 됩니다.
+
+                 자세한 순서는 저장소의 README.md 를 보세요.
+                 ═══════════════════════════════════════════════════════════ -->
+            <ul class="certs">
+              <li>
+                <button
+                  class="button"
+                  type="button"
+                  data-cert="img/certification.webp"
+                  data-label="Certificate of product-specific approved exporter issued to Pauls International"
+                >
+                  &rarr; Certificate of product-specific<br />
+                  approved exporter
+                </button>
+              </li>
+
+              <!-- 인증서를 하나 더 넣을 때는 아래 주석을 풀고 값을 바꾸세요.
+              <li>
+                <button
+                  class="button"
+                  type="button"
+                  data-cert="img/cert-oekotex.webp"
+                  data-label="OEKO-TEX certificate issued to Pauls International"
+                >
+                  &rarr; OEKO-TEX certificate
+                </button>
+              </li>
+              -->
+            </ul>
           </div>
         </div>
 
-        <!-- 체크박스 해킹 대신 표준 <dialog>: ESC 닫기, 포커스 트랩, 스크린리더 인식이 기본 제공됩니다 -->
-        <dialog class="box_modal" aria-label="Certificate of product-specific approved exporter">
+        <!-- 팝업은 하나만 두고, 누른 버튼에 따라 사진을 바꿔 끼웁니다.
+             그래서 인증서를 추가해도 이 부분은 건드릴 필요가 없습니다.
+             표준 <dialog>이므로 ESC 닫기와 스크린리더 인식이 기본 제공됩니다. -->
+        <dialog class="box_modal">
           <button class="closer" type="button" data-close-modal aria-label="Close">
             <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
               <path
@@ -325,14 +363,8 @@
             </svg>
           </button>
           <div class="modal_image">
-            <!-- 모달을 열 때 비로소 받아오도록 (첫 화면에서 130KB 절약) -->
-            <img
-              data-src="img/certification.webp"
-              alt="Certificate of product-specific approved exporter issued to Pauls International"
-              width="1200"
-              height="1698"
-              decoding="async"
-            />
+            <!-- 버튼을 누를 때 비로소 사진을 받아옵니다 (첫 화면에서 130KB 절약) -->
+            <img alt="" decoding="async" />
           </div>
         </dialog>
       </section>
@@ -353,14 +385,6 @@
             108, Toegye-Ro,<br />
             Jung-Gu,<br />
             Seoul, Korea
-          </address>
-          <!-- 네이버가 이 사이트와 지도의 '폴스무역(주)'를 같은 회사로 인식하려면
-               한글 상호와 한글 주소가 페이지에 글자로 있어야 한다.
-               표기는 수출인증자 인증서와 동일하게 맞췄다. -->
-          <address class="details details--ko" lang="ko">
-            폴스무역(주)<br />
-            04631 서울특별시 중구 퇴계로 108<br />
-            세대빌딩 1102-1호
           </address>
         </div>
         <div class="other">
@@ -409,19 +433,29 @@
           });
         }
 
-        // 인증서 모달 — 열 때 이미지를 받아온다
+        // 인증서 팝업 — 누른 버튼의 사진을 끼워 넣고 연다.
+        // 버튼이 몇 개든 아래 코드는 그대로 동작하므로, 인증서를 추가해도 손댈 필요가 없다.
         var dialog = document.querySelector("dialog.box_modal");
-        var openBtn = document.querySelector("[data-open-modal]");
         var closeBtn = document.querySelector("[data-close-modal]");
-        if (dialog && openBtn) {
-          openBtn.addEventListener("click", function () {
-            var img = dialog.querySelector("img[data-src]");
-            if (img) {
-              img.src = img.getAttribute("data-src");
-              img.removeAttribute("data-src");
+        if (dialog) {
+          var modalImg = dialog.querySelector(".modal_image img");
+
+          Array.prototype.forEach.call(
+            document.querySelectorAll("[data-cert]"),
+            function (btn) {
+              btn.addEventListener("click", function () {
+                var src = btn.getAttribute("data-cert");
+                var label = btn.getAttribute("data-label") || "";
+                if (modalImg && modalImg.getAttribute("src") !== src) {
+                  modalImg.setAttribute("src", src);
+                  modalImg.setAttribute("alt", label);
+                }
+                dialog.setAttribute("aria-label", label);
+                dialog.showModal();
+              });
             }
-            dialog.showModal();
-          });
+          );
+
           if (closeBtn) {
             closeBtn.addEventListener("click", function () {
               dialog.close();
